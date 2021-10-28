@@ -1,37 +1,17 @@
 package com.jjh.books;
 
 /**
- * Represents a Book with a title, author, publisher and a price.
+ * Book is a type of product that has an author and a publisher.
  */
-public class Book {
+public class Book extends Product {
 
-	private String title;
 	private Author author;
 	private Publisher publisher;
-	private double price;
-	private double salePercentage;
 
 	public Book(String title, Author author, Publisher publisher, double price) {
-		this.title = title;
+		super(title, price);
 		this.author = author;
 		this.publisher = publisher;
-		this.price = price;
-	}
-
-	public void setSaleDiscount(double salePercentage) {
-		this.salePercentage = salePercentage / 100.0;
-	}
-
-	public double calculateSalePrice() {
-		return price - (price * salePercentage);
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public Author getAuthor() {
@@ -50,17 +30,9 @@ public class Book {
 		this.publisher = publisher;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	@Override
 	public String toString() {
-		return String.format("Book [title=%s, author=%s, publisher=%s, price=%s]", title, author, publisher, price);
+		return String.format("Book(title=%s, author=%s, price %s, publisher=%s, discount=%s]",
+				getTitle(), author, getPrice(), publisher, getSalePercentage());
 	}
 
 }

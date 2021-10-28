@@ -1,8 +1,5 @@
 package com.jjh.books;
 
-/**
- * Represents an Address of something or someone.
- */
 public class Address {
 	private int number;
 	private String street;
