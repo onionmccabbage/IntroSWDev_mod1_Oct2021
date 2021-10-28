@@ -1,26 +1,40 @@
 package com.jjh.books;
 
-public class Publisher extends Contact {
+public class Publisher implements PrettyPrinter {
 	
-	private String organisation;
+	private String name;
+	private Address address;
 	
-	public Publisher(String name, Address address, String organisation) {
-		super(name, address);
-		this.organisation = organisation;
+	public Publisher(String name, Address address) {
+		super();
+		this.name = name;
+		this.address = address;
 	}
 
-	
-	public String getOrganisation() {
-		return organisation;
+	public String getName() {
+		return name;
 	}
 
-	public void setOrganisation(String organisation) {
-		this.organisation = organisation;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Publisher %s, organisation=%s", organisation, super.toString());
+		return String.format("Publisher [name=%s, address=%s]", name, address);
+	}
+
+	@Override
+	public void prettyPrint() {
+		System.out.printf("Publisher [name=%s, address=%s]", name, address);
 	}
 	
 }

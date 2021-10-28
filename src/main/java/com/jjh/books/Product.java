@@ -1,32 +1,27 @@
 package com.jjh.books;
 
-/**
- * Acts as the root type for all products
- * sold by the Bookshop.
- */
-public class Product {
+public abstract class Product implements Sales {
 
 	private String title;
 	private double price;
-	private double discount;
+	private double salePercentage;
+	
 	
 	public Product(String title, double price) {
 		this.title = title;
 		this.price = price;
 	}
 	
+	public abstract void printer();
+	
 	public void setSaleDiscount(double salePercentage) {
-		this.discount = salePercentage / 100.0;
+		this.salePercentage = salePercentage / 100.0;
 	}
 
 	public double calculateSalePrice() {
-		return price - (price * discount);
+		return price - (price * salePercentage);
 	}
-
-	protected double getSalePercentage() {
-		return discount;
-	}
-
+	
 	public String getTitle() {
 		return title;
 	}
